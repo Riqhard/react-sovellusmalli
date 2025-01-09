@@ -4,7 +4,7 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: flex-start; /* Osat vasemmalle vierekkäin*/
   align-items: flex-start; /* Tasaa osat ylälaitaan */
-  background-color: #eef2ff;
+  background-color: #f0f9ff;
   color: white;
   font-size: 1.25rem;
   width: 100%;

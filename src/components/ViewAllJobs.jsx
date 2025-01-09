@@ -7,7 +7,7 @@ const ViewAllJobs = () => {
         to='/jobs'
         className='block bg-sky-700 text-white text-center py-4 px-6 rounded-xl hover:bg-sky-900'
       >
-        View All Jobs
+        Katso kaikki työpaikat
       </Link>
     </section>
   );

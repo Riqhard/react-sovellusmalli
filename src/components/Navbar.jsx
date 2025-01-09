@@ -15,10 +15,10 @@ const Navbar = () => {
     <Nav>
       <Logo src={logo}></Logo>
       <NavLinks menu={menu}>
-        <NavLink to="/" activeclassname="active">Home</NavLink>
-        <NavLink to="/jobs" activeclassname="active">Jobs</NavLink>
-        <PrivateLink to="/add-job" activeclassname="active">Add Job</PrivateLink>
-        <AdminLink to="/users" activeclassname="active">Users</AdminLink>
+        <NavLink to="/" activeclassname="active">Koti</NavLink>
+        <NavLink to="/jobs" activeclassname="active">Työpaikat</NavLink>
+        <PrivateLink to="/add-job" activeclassname="active">Lisää Työpaikka</PrivateLink>
+        <AdminLink to="/users" activeclassname="active">Käyttäjät</AdminLink>
         <LoginCloseButton/> 
       </NavLinks>
       <MenuButton onClick={() => setOpenmenu(!openmenu)}>

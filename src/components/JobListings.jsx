@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import JobListing from './JobListing';
 import Spinner from './Spinner';
 
-const JobListings = ({ isHome = false, searchQuery = '' }) => {
+const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -21,18 +22,30 @@ const JobListings = ({ isHome = false, searchQuery = '' }) => {
     };
 
     fetchJobs();
-  }, []);
+  }, [isHome]);
 
-  const filteredJobs = jobs.filter(job =>
+  const filteredJobs = jobs.filter((job) =>
     job.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  
 
   return (
     <section className='bg-blue-50 px-4 py-10'>
       <div className='container-xl lg:container m-auto'>
         <h2 className='text-3xl font-bold text-sky-700 mb-6 text-center'>
-          {isHome ? 'Recent Jobs' : 'Browse Jobs'}
+          {isHome ? 'Viimeisimmät Työilmoitukset' : 'Kaikki Työilmoitukset'}
         </h2>
+
+        <div className='mb-6'>
+          <input
+            type='text'
+            placeholder='Search...'
+            className='border rounded w-full py-2 px-3 bg-white'
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
 
         {loading ? (
           <Spinner loading={loading} />

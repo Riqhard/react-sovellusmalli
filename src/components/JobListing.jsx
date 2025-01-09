@@ -26,10 +26,12 @@ const JobListing = ({ job }) => {
           onClick={() => setShowFullDescription((prevState) => !prevState)}
           className='text-sky-600  mb-5  bg-white hover:text-sky-700'
         >
-          {showFullDescription ? 'Less' : 'More'}
+          {showFullDescription ? 'Pienennä' : 'Lisää'}
         </button>
 
-        <h3 className='text-sky-500 mb-2'>{job.salary} / Year</h3>
+        <h3 className='text-sky-500 mb-2'>
+        {job.salary} {job.salary !== "Työharjoittelu" && "/ Vuosi"}
+        </h3>
 
         <div className='border border-gray-100 mb-5'></div>
 
@@ -42,7 +44,7 @@ const JobListing = ({ job }) => {
             to={`/jobs/${job.id}`}
             className='h-[36px] bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg text-center text-sm'
           >
-            Read More
+            Katso työpaikka
           </Link>
         </div>
       </div>

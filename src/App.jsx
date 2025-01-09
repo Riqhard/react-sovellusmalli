@@ -17,6 +17,7 @@ import EditJobPage from './pages/EditJobPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { MainLayout } from './layouts/MainLayout';
 import { HomePage }  from './pages/HomePage';
+import ApplyJobPage from './pages/ApplyJobPage';
 
 const basename="/projektit_react/react-sovellusmalli"
 
@@ -78,6 +79,7 @@ const router = createBrowserRouter(
           element={<JobPage deleteJob={deleteJob} />}
           loader={jobLoader}
         />
+    <Route path='/apply-job/:id' element={<ApplyJobPage />} />
 
     <Route path="login" element={<Login/>} loader={loaderCsrfToken} />
     <Route path="signup" element={<Signup/>} loader={loaderCsrfToken} />
