@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Hero = ({
-  title = 'Työilmoitus palvelu',
+  title = 'Työpaikat Suomessa', 
   subtitle = 'Löydä työpaikka joka on kuin sinulle tehty',
 }) => {
   return (

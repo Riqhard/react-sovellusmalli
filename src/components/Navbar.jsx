@@ -2,7 +2,7 @@ import { Nav,NavLinks,Logo,MenuButton } from "../Navbar.style";
 import { NavLink } from 'react-router-dom';
 import { LoginCloseButton, PrivateLink, PublicLink, AdminLink } from '../pages/PrivateLink'
 import { FaBars,FaTimes } from "react-icons/fa"
-import logo from '../assets/omniamusta_eitaustaa.png'
+import logo from '../assets/jobs.png'
 import { useState } from 'react'
 
 
