@@ -1,0 +1,30 @@
+{
+  "haetaan": [
+    {
+      "id": "1",
+      "nimi": "",
+      "email": "",
+      "coverLetter": "",
+      "salaryExpectation": "",
+      "cv": "",
+      "profilePicture": "",
+      "additionalLinks": "",
+      "jobTitle": "",
+      "paivamaara": "2021-01-01"
+    },
+    {
+      "id": "03c6",
+      "jobId": "2",
+      "userId": null,
+      "name": "riku",
+      "email": "RalliRoope@jippii.fi",
+      "coverLetter": "Tämä on testi hakemus...",
+      "salaryExpectation": "1000",
+      "additionalLinks": [
+        "https://moodle.omnia.fi/my/",
+        "http://localhost:3000/projektit_react/react-sovellusmalli/apply-job/3",
+        "https://tailwindcss.com/docs/height"
+      ]
+    }
+  ]
+}

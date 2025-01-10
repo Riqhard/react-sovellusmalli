@@ -18,6 +18,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import { MainLayout } from './layouts/MainLayout';
 import { HomePage }  from './pages/HomePage';
 import ApplyJobPage from './pages/ApplyJobPage';
+import UserApplicationsPage from './pages/UserApplicationsPage';
 
 const basename="/projektit_react/react-sovellusmalli"
 
@@ -40,6 +41,7 @@ const addJob = async (newJob) => {
     },
     body: JSON.stringify(newJob),
   });
+  console.log('addJob:',res);
   return;
 };
 
@@ -63,6 +65,18 @@ const updateJob = async (job) => {
   return;
 };
 
+const submitApplication = async (application) => {
+  const res = await fetch('/haetaan/haetaan', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(application),
+  });
+  console.log('submitApplication:',res);
+  return;
+};
+
 const router = createBrowserRouter( 
   createRoutesFromElements(
   <Route path="/" element={<MainLayout />} errorElement={<ErrorBoundary />}>
@@ -79,7 +93,8 @@ const router = createBrowserRouter(
           element={<JobPage deleteJob={deleteJob} />}
           loader={jobLoader}
         />
-    <Route path='/apply-job/:id' element={<ApplyJobPage />} />
+    <Route path='/apply-job/:id' element={<ApplyJobPage applyJobSubmit={submitApplication}/>} />
+    <Route path='/user-applications' element={<Private><UserApplicationsPage /></Private>} />
 
     <Route path="login" element={<Login/>} loader={loaderCsrfToken} />
     <Route path="signup" element={<Signup/>} loader={loaderCsrfToken} />

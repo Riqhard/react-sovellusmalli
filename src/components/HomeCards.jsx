@@ -3,7 +3,7 @@ import Card from './Card';
 
 const HomeCards = () => {
   return (
-    <section className='py-4'>
+    <section className='py-1'>
       <div className='container-xl lg:container m-auto'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg'>
           <Card>
@@ -27,7 +27,7 @@ const HomeCards = () => {
               to='/add-job'
               className='inline-block bg-sky-500 text-white rounded-lg px-4 py-2 hover:bg-sky-600'
             >
-              Lisää Työilmoitus
+              Tee Työilmoitus
             </Link>
           </Card>
         </div>

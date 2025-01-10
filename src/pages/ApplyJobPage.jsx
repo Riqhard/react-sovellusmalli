@@ -3,17 +3,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FaPlus } from 'react-icons/fa';
 
-const ApplyJobPage = () => {
+const ApplyJobPage = ({ applyJobSubmit }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [coverLetter, setCoverLetter] = useState('');
   const [salaryExpectation, setSalaryExpectation] = useState('');
-  const [cv, setCv] = useState(null);
-  const [profilePicture, setProfilePicture] = useState(null);
   const [additionalLinks, setAdditionalLinks] = useState(['']);
   const [job, setJob] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
     const fetchJob = async () => {
@@ -25,7 +24,12 @@ const ApplyJobPage = () => {
     fetchJob();
   }, [id]);
 
-  
+  useEffect(() => {
+    // Fetch the user ID from the context or session storage
+    const userId = sessionStorage.getItem('userId');
+    setUserId(userId);
+  }, []);
+
   const handleAddLink = () => {
     setAdditionalLinks([...additionalLinks, '']);
   };
@@ -41,20 +45,19 @@ const ApplyJobPage = () => {
 
     const application = {
       jobId: id,
+      userId, // Include the user ID
       name,
       email,
       coverLetter,
       salaryExpectation,
-      cv,
-      profilePicture,
       additionalLinks,
     };
 
-    // Submit the application (e.g., send it to the server)
-    // ...
+    applyJobSubmit(application);
 
-    toast.success('Haku lähetetty onnistuneesti!');
-    navigate(`/jobs/${id}`);
+    toast.success('Hakemus lähetetty onnistuneesti');
+
+    return navigate('/jobs');
   };
 
   return (
@@ -139,43 +142,6 @@ const ApplyJobPage = () => {
                   onChange={(e) => setSalaryExpectation(e.target.value)}
                 />
               </div>
-
-              <div className='mb-4'>
-                <label
-                  htmlFor='cv'
-                  className='block text-gray-700 font-bold mb-2'
-                >
-                  CV
-                </label>
-                <input
-                  type='file'
-                  id='cv'
-                  name='cv'
-                  className='border rounded w-full py-2 px-3 bg-white'
-                  required
-                  onChange={(e) => setCv(e.target.files[0])}
-                />
-              </div>
-
-              <div className='mb-4'>
-                <label
-                  htmlFor='profilePicture'
-                  className='block text-gray-700 font-bold mb-2'
-                >
-                  Omakuva
-                </label>
-                <input
-                  type='file'
-                  id='profilePicture'
-                  name='profilePicture'
-                  className='border rounded w-full py-2 px-3 bg-white'
-                  required
-                  onChange={(e) => setProfilePicture(e.target.files[0])}
-                />
-              </div>
-
-
-
 
               {additionalLinks.map((link, index) => (
                 <div className='mb-4' key={index}>

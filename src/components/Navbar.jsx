@@ -15,9 +15,10 @@ const Navbar = () => {
     <Nav>
       <Logo src={logo}></Logo>
       <NavLinks menu={menu}>
-        <NavLink to="/" activeclassname="active">Koti</NavLink>
-        <NavLink to="/jobs" activeclassname="active">Työpaikat</NavLink>
-        <PrivateLink to="/add-job" activeclassname="active">Lisää Työpaikka</PrivateLink>
+        <NavLink to="/" activeclassname="active">Etusivu</NavLink>
+        <NavLink to="/jobs" activeclassname="active">Työilmoitukset</NavLink>
+        <PrivateLink to="/add-job" activeclassname="active">Tee Työilmoitus</PrivateLink>
+        <PrivateLink to="/user-applications" activeclassname="active">Omat hakemukset</PrivateLink>
         <AdminLink to="/users" activeclassname="active">Käyttäjät</AdminLink>
         <LoginCloseButton/> 
       </NavLinks>

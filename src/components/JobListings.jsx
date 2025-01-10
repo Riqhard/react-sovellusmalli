@@ -9,7 +9,7 @@ const JobListings = ({ isHome = false }) => {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs';
+      const apiUrl = isHome ? '/api/jobs?_limit=4' : '/api/jobs';
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
@@ -37,6 +37,7 @@ const JobListings = ({ isHome = false }) => {
           {isHome ? 'Viimeisimmät Työilmoitukset' : 'Kaikki Työilmoitukset'}
         </h2>
 
+        {!isHome && (
         <div className='mb-6'>
           <input
             type='text'
@@ -46,11 +47,12 @@ const JobListings = ({ isHome = false }) => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+        )}
 
         {loading ? (
           <Spinner loading={loading} />
         ) : (
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+          <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
             {filteredJobs.map((job) => (
               <JobListing key={job.id} job={job} />
             ))}

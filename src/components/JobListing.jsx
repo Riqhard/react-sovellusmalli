@@ -24,14 +24,14 @@ const JobListing = ({ job }) => {
 
         <button
           onClick={() => setShowFullDescription((prevState) => !prevState)}
-          className='text-sky-600  mb-5  bg-white hover:text-sky-700'
+          className='text-sky-600  mb-0  bg-white hover:text-sky-700'
         >
           {showFullDescription ? 'Pienennä' : 'Lisää'}
         </button>
 
-        <h3 className='text-sky-500 mb-2'>
+        <div className='text-sky-500 mb-2 lg:h-5'>
         {job.salary} {job.salary !== "Työharjoittelu" && "/ Vuosi"}
-        </h3>
+        </div>
 
         <div className='border border-gray-100 mb-5'></div>
 
@@ -40,13 +40,16 @@ const JobListing = ({ job }) => {
             <FaMapMarker className='inline text-lg mb-1 mr-1' />
             {job.location}
           </div>
+
+        </div>
+
           <Link
             to={`/jobs/${job.id}`}
             className='h-[36px] bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg text-center text-sm'
           >
             Katso työpaikka
           </Link>
-        </div>
+
       </div>
     </div>
   );
